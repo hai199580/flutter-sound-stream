@@ -275,7 +275,7 @@ public class SwiftSoundStreamPlugin: NSObject, FlutterPlugin {
     private func attachPlayer() {
         let session = AVAudioSession.sharedInstance()
         try? session.setActive(false)
-        try! session.setCategory(
+        try? session.setCategory(
             .playAndRecord,
             options: [
                 .defaultToSpeaker,
@@ -283,7 +283,7 @@ public class SwiftSoundStreamPlugin: NSObject, FlutterPlugin {
                 .allowBluetoothA2DP,
                 .allowAirPlay
             ])
-        try! session.setActive(true)
+        try? session.setActive(true)
         mPlayerOutputFormat = AVAudioFormat(commonFormat: AVAudioCommonFormat.pcmFormatFloat32, sampleRate: PLAYER_OUTPUT_SAMPLE_RATE, channels: 1, interleaved: true)
         mRecordFormat = AVAudioFormat(commonFormat: AVAudioCommonFormat.pcmFormatInt16, sampleRate: mRecordSampleRate, channels: 1, interleaved: true)
 
